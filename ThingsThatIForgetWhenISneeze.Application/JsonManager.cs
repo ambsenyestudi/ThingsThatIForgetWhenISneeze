@@ -10,13 +10,19 @@ namespace ThingsThatIForgetWhenISneeze.Application
     public class JsonManager
     {
         private string _jsonSample = null;
+        Dictionary<string, object> _responseObj;
+        public Dictionary<string, object> DeserializedData
+        {
+            get { return _responseObj; }
+        }
         public JsonManager()
         {
             initializeJson();
+            cookJson();
         }
-        public void CookJson()
+        private void cookJson()
         {
-            Dictionary<string, object> responseObj=JsonConvert.DeserializeObject<Dictionary<string,object>>(_jsonSample);
+            _responseObj=JsonConvert.DeserializeObject<Dictionary<string, object>>(_jsonSample);
         }
         private void initializeJson()
         {
