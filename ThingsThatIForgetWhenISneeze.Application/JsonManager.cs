@@ -31,7 +31,8 @@ namespace ThingsThatIForgetWhenISneeze.Application
         public List<ResultEntity> GetResults()
         {
             List<ResultEntity> result = new List<ResultEntity>();
-            string resultsJson= _responseObj["responseData"].ToString();
+            //string resultsJson= _responseObj["responseData"].ToString();
+            string resultsJson = _responseObj["responsedata"].ToString();
             var res = JsonConvert.DeserializeObject<ResultsEntity>(resultsJson);
             if(res!=null)
             {
@@ -43,7 +44,8 @@ namespace ThingsThatIForgetWhenISneeze.Application
         #region PrivatecMethods
         private void cookJson()
         {
-            _responseObj=JsonConvert.DeserializeObject<Dictionary<string, object>>(_jsonSample);
+            var dic= JsonConvert.DeserializeObject<Dictionary<string, object>>(_jsonSample);
+            _responseObj = new Dictionary<string, object>(dic, StringComparer.InvariantCultureIgnoreCase);
         }
         private void initializeJson()
         {
