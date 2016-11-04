@@ -49,6 +49,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ThingsThatIForgetWhenISneeze.Application\ThingsThatIForgetWhenISneeze.Application.csproj">
+      <Project>{b591d60b-8a1b-4c9f-a2fa-db2133a68815}</Project>
+      <Name>ThingsThatIForgetWhenISneeze.Application</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
