@@ -19,9 +19,7 @@ namespace ThingsThatIForgetWhenISneeze.Application.Entities
 
         [JsonProperty(PropertyName = "url")]
         public string Url { get; set; }
-
-
-
+        
         [JsonProperty(PropertyName = "visibleUrl")]
         public string VisibleUrl { get; set; }
 
