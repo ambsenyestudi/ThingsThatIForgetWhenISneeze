@@ -1,9 +1,11 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ThingsThatIForgetWhenISneeze.Application.Entities;
 
 namespace ThingsThatIForgetWhenISneeze.Application
 {
@@ -14,6 +16,25 @@ namespace ThingsThatIForgetWhenISneeze.Application
         public Dictionary<string, object> DeserializedData
         {
             get { return _responseObj; }
+        }
+        public List<ResultEntity> GetResults()
+        {
+            List<ResultEntity> resultList = new List<ResultEntity>();
+            if (_responseObj.ContainsKey("responseData"))
+            {
+                var responseData = _responseObj["responseData"]as JObject;
+                var results = responseData["results"] as JArray;
+                foreach(var r in results)
+                {
+                    ResultEntity re = r.ToObject<ResultEntity>();
+                    if(re!=null)
+                    {
+                        resultList.Add(re);
+                    }
+                }
+            }
+
+            return resultList;
         }
         public JsonManager()
         {
