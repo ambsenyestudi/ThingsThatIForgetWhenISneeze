@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThingsThatIForgetWhenISneez
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationUnitTest", "ApplicationUnitTest\ApplicationUnitTest.csproj", "{9652306B-F1F1-4E5F-93F4-3B94F631726F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThingsThatIForgetWhenISneeze.Entites", "ThingsThatIForgetWhenISneeze.Entites\ThingsThatIForgetWhenISneeze.Entites.csproj", "{1DE2A870-8662-4EFB-A403-D10498F3261C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThingsThatIForgetWhenISneeze.Repository", "ThingsThatIForgetWhenISneeze.Repository\ThingsThatIForgetWhenISneeze.Repository.csproj", "{A4929289-5BB8-4A72-AF21-C49D0A8F191E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{9652306B-F1F1-4E5F-93F4-3B94F631726F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9652306B-F1F1-4E5F-93F4-3B94F631726F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9652306B-F1F1-4E5F-93F4-3B94F631726F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DE2A870-8662-4EFB-A403-D10498F3261C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DE2A870-8662-4EFB-A403-D10498F3261C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DE2A870-8662-4EFB-A403-D10498F3261C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DE2A870-8662-4EFB-A403-D10498F3261C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4929289-5BB8-4A72-AF21-C49D0A8F191E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4929289-5BB8-4A72-AF21-C49D0A8F191E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4929289-5BB8-4A72-AF21-C49D0A8F191E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4929289-5BB8-4A72-AF21-C49D0A8F191E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

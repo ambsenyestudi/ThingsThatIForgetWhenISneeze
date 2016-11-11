@@ -78,7 +78,6 @@ namespace ApplicationUnitTest
             string fileName = "testFile";
             string fileExtension = "json";
             string folderName = "Tests";
-            //string inText = @"{""Name"":""John"",""Surname"":""Conor""}";
             string inText = JsonConvert.SerializeObject(new BasicInfoEntity { Name = "John", Surname = "Connor" });
             FileManager.WriteFile(fileName, fileExtension, inText, folderName);
             string outText = FileManager.ReadFile(fileName, fileExtension, folderName);

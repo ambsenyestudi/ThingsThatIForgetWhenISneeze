@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{946FD382-7771-4BCA-8CBE-976F0393EF22}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{1DE2A870-8662-4EFB-A403-D10498F3261C}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ThingsThatIForgetWhenISneeze</RootNamespace>
-    <AssemblyName>ThingsThatIForgetWhenISneeze</AssemblyName>
+    <RootNamespace>ThingsThatIForgetWhenISneeze.Entites</RootNamespace>
+    <AssemblyName>ThingsThatIForgetWhenISneeze.Entites</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -33,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,21 +44,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="BasicInfoEntity.cs" />
+    <Compile Include="ResultEntity.cs" />
+    <Compile Include="ResultsEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ThingsThatIForgetWhenISneeze.Application\ThingsThatIForgetWhenISneeze.Application.csproj">
-      <Project>{b591d60b-8a1b-4c9f-a2fa-db2133a68815}</Project>
-      <Name>ThingsThatIForgetWhenISneeze.Application</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ThingsThatIForgetWhenISneeze.Repository\ThingsThatIForgetWhenISneeze.Repository.csproj">
-      <Project>{a4929289-5bb8-4a72-af21-c49d0a8f191e}</Project>
-      <Name>ThingsThatIForgetWhenISneeze.Repository</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
