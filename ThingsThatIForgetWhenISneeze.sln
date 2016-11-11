@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThingsThatIForgetWhenISneez
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThingsThatIForgetWhenISneeze.Application", "ThingsThatIForgetWhenISneeze.Application\ThingsThatIForgetWhenISneeze.Application.csproj", "{B591D60B-8A1B-4C9F-A2FA-DB2133A68815}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationUnitTest", "ApplicationUnitTest\ApplicationUnitTest.csproj", "{9652306B-F1F1-4E5F-93F4-3B94F631726F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B591D60B-8A1B-4C9F-A2FA-DB2133A68815}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B591D60B-8A1B-4C9F-A2FA-DB2133A68815}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B591D60B-8A1B-4C9F-A2FA-DB2133A68815}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9652306B-F1F1-4E5F-93F4-3B94F631726F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9652306B-F1F1-4E5F-93F4-3B94F631726F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9652306B-F1F1-4E5F-93F4-3B94F631726F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9652306B-F1F1-4E5F-93F4-3B94F631726F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -44,8 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\BasicInfoEntity.cs" />
     <Compile Include="Entities\ResultEntity.cs" />
     <Compile Include="Entities\ResultsEntity.cs" />
+    <Compile Include="FileManager.cs" />
     <Compile Include="JsonManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
