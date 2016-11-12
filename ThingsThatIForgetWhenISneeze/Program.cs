@@ -31,15 +31,17 @@ namespace ThingsThatIForgetWhenISneeze
             Console.WriteLine("\nLet's create an object now and save it to a file");
             string fileName = "testFile";
             string fileExtension = "json";
-            string folderName = "Tests";
+            string folderName = @"Tests\fakes\";
+            folderName = @"Tests";
             Console.WriteLine(string.Format(@"{0}\{1}.{2} created",folderName, fileName,fileExtension));
             BasicInfoRepository repo = new BasicInfoRepository();
             repo.CreateNewBasicInfo("John", "Connor");
             string inText = repo.GetAllBasicInfoSerialized();
             Console.WriteLine("inText will be:");
             Console.WriteLine(inText);
-            FileManager.WriteFile(fileName, fileExtension, inText, folderName);
-            string outText = FileManager.ReadFile(fileName, fileExtension, folderName);
+            FileManager fileManager = new FileManager(AppDomain.CurrentDomain.BaseDirectory);
+            fileManager.WriteFile(fileName, fileExtension, inText, folderName);
+            string outText = fileManager.ReadFile(fileName, fileExtension, folderName);
             Console.WriteLine("text retrieved from file is:");
             Console.WriteLine(outText);
             //To prevent de program from ending

@@ -7,51 +7,68 @@ using System.Threading.Tasks;
 
 namespace ThingsThatIForgetWhenISneeze.Application
 {
-    public static class FileManager
+    public class FileManager
     {
-        public static string GetPath(string fileName, string fileExtension,string folderPath="")
+        private string _basePath = null;
+        /// <summary>
+        /// constructor need a basePath to be used through out the app, this makes possible to use this class from any .net app
+        /// </summary>
+        /// <param name="basePath">on asp.net HttpContext.Current.Server.MapPath(""), on console AppDomain.CurrentDomain.BaseDirectory</param>
+        public FileManager(string basePath)
         {
-            string path = null;
-            if(!string.IsNullOrWhiteSpace(fileName)&&!string.IsNullOrWhiteSpace(fileExtension))
+            _basePath = basePath;
+        }
+        public string GetPath(string fileName, string fileExtension, bool createIfNotExists = false, string folderPath = "")
+        {
+            if(string.IsNullOrWhiteSpace(_basePath))
             {
-                string basePath = AppDomain.CurrentDomain.BaseDirectory;
-                
+                throw new IOException("File Manager needs a basePath to work with");
+            }
+            string path = null;
+            if (!string.IsNullOrWhiteSpace(fileName) && !string.IsNullOrWhiteSpace(fileExtension))
+            {
+
+
                 if (fileExtension.Contains("."))
                 {
-                    fileExtension=fileExtension.Replace(".", "");
+                    fileExtension = fileExtension.Replace(".", "");
                 }
-                if(string.IsNullOrWhiteSpace(folderPath))
+                if (string.IsNullOrWhiteSpace(folderPath))
                 {
                     folderPath = "";
                 }
-                else if(folderPath[folderPath.Length-1]!='\\')
+                else if (!folderPath.EndsWith(@"\"))
                 {
                     folderPath += @"\";
-                    //this ensures directory creation
-                    if (!Directory.Exists(folderPath))
-                    {
-                        Directory.CreateDirectory(folderPath);
-                        
-                    }
                 }
-                path = string.Format(@"{0}\{1}{2}.{3}", basePath , folderPath,fileName,fileExtension);
-                /*
-                 * on asp.net it would be
-                 * path=HttpContext.Current.Server.MapPath("{0}{1}.{2}",folderPath,fileName,fileExtension);
-                 */
+                //this ensures directory creation
+                if (!string.IsNullOrWhiteSpace(folderPath) && !Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+                
+                var baseAndFolder = string.Format(@"{0}\{1}", _basePath, folderPath);
+                if(!baseAndFolder.EndsWith(@"\"))
+                {
+                    baseAndFolder += @"\";
+                }
+                baseAndFolder= baseAndFolder.Replace(@"\\", @"\");
+                path = string.Format(@"{0}{1}.{2}", baseAndFolder, fileName, fileExtension);
+                path = path.Replace(@"\\", @"\");
+                if (createIfNotExists)
+                {
+                    //this ensures file creation
+                    var fs = File.Open(path, FileMode.OpenOrCreate);
+                    fs.Close();
+                }
 
-                
-                //this ensures file creation
-                
-                var fs = File.Open(path, FileMode.OpenOrCreate);
-                fs.Close();
-                
+
             }
             return path;
         }
-        public static void WriteFile(string fileName, string fileExtension,string fileContent, string folderPath = "")
+        public void WriteFile(string fileName, string fileExtension,string fileContent, string folderPath = "")
         {
-            string path = GetPath(fileName, fileExtension, folderPath);
+            string path = GetPath(fileName, fileExtension, true, folderPath);
             if(path==null)
             {
                 throw new InvalidOperationException("write file path was invalid");
@@ -59,9 +76,9 @@ namespace ThingsThatIForgetWhenISneeze.Application
             
             File.WriteAllText(path, fileContent);
         }
-        public static string ReadFile(string fileName, string fileExtension, string folderPath = "")
+        public string ReadFile(string fileName, string fileExtension, string folderPath = "")
         {
-            return File.ReadAllText(GetPath(fileName, fileExtension, folderPath));
+            return File.ReadAllText(GetPath(fileName, fileExtension, true, folderPath));
         }
     }
 }
